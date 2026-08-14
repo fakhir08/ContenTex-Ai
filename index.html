@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ContentX AI — Content Growth Agent</title>
+<style>
+:root{--bg:#0b1020;--panel:#121a2b;--panel2:#182238;--text:#eef2ff;--muted:#98a2b8;--accent:#7c5cff;--accent2:#25d0ab;--border:#27334d;--danger:#ff6b7a}
+*{box-sizing:border-box}body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,sans-serif;background:var(--bg);color:var(--text)}
+button,input,textarea,select{font:inherit}button{cursor:pointer;border:0}.app{display:flex;min-height:100vh}.sidebar{width:245px;background:#0a0f1d;border-right:1px solid var(--border);padding:22px 16px;position:sticky;top:0;height:100vh}.logo{font-weight:800;font-size:22px;margin:4px 8px 28px}.logo span{color:var(--accent)}.nav button{width:100%;background:transparent;color:var(--muted);padding:12px;border-radius:10px;text-align:left;margin:3px 0}.nav button.active,.nav button:hover{background:var(--panel2);color:#fff}.main{flex:1;padding:28px;max-width:1500px;margin:auto;width:100%}.top{display:flex;justify-content:space-between;align-items:center;margin-bottom:24px}.eyebrow{color:var(--accent2);font-size:13px;font-weight:700}.title{font-size:30px;margin:5px 0}.subtitle{color:var(--muted)}.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}.card{background:var(--panel);border:1px solid var(--border);border-radius:16px;padding:18px}.metric{font-size:28px;font-weight:800;margin-top:7px}.muted{color:var(--muted);font-size:13px}.section{margin-top:18px}.two{display:grid;grid-template-columns:1.2fr .8fr;gap:18px}.progress{height:10px;background:#202b42;border-radius:99px;overflow:hidden;margin:14px 0}.progress>div{height:100%;width:37%;background:linear-gradient(90deg,var(--accent),var(--accent2))}.upload{border:1.5px dashed #3a4b70;padding:28px;border-radius:14px;text-align:center;background:#0f1728}.upload input{margin-top:15px;width:100%}.btn{background:var(--accent);color:#fff;padding:11px 16px;border-radius:10px;font-weight:700}.btn.secondary{background:#24304a}.btn.green{background:#159b80}.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:15px}.score{display:flex;gap:12px;align-items:center}.score .circle{width:78px;height:78px;border-radius:50%;display:grid;place-items:center;background:conic-gradient(var(--accent) 0 82%,#24304a 82%);position:relative;font-weight:800}.score .circle:after{content:"";position:absolute;inset:7px;background:var(--panel);border-radius:50%}.score .circle b{position:relative;z-index:1}.bars{display:grid;gap:12px;margin-top:15px}.barrow{display:grid;grid-template-columns:90px 1fr 40px;align-items:center;gap:8px;font-size:13px}.bar{height:8px;background:#26334d;border-radius:20px;overflow:hidden}.bar i{display:block;height:100%;background:var(--accent2)}.pattern{border-left:4px solid var(--accent2);padding:14px;background:#101b2c;border-radius:10px}.content-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}.video{background:var(--panel);border:1px solid var(--border);border-radius:15px;padding:17px}.badge{display:inline-block;padding:5px 8px;border-radius:999px;background:#242e48;color:#cbd5ff;font-size:11px;font-weight:700}.video h3{margin:10px 0 6px}.hook{background:#0d1525;border-radius:10px;padding:12px;color:#fff}.mini{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0}.mini span{background:#202b42;padding:5px 8px;border-radius:8px;font-size:11px;color:#b9c2d5}.empty{color:var(--muted);padding:20px;text-align:center}.toast{position:fixed;right:20px;bottom:20px;background:#17233a;border:1px solid var(--border);padding:13px 16px;border-radius:12px;display:none}.tab{display:none}.tab.active{display:block}@media(max-width:900px){.sidebar{width:70px}.logo{font-size:0}.logo span{font-size:20px}.nav button{font-size:0}.nav button:first-letter{font-size:18px}.grid{grid-template-columns:repeat(2,1fr)}.two,.content-grid{grid-template-columns:1fr}}@media(max-width:560px){.sidebar{display:none}.main{padding:18px}.grid{grid-template-columns:1fr 1fr}.title{font-size:24px}}
+</style>
+</head>
+<body>
+<div class="app">
+<aside class="sidebar">
+  <div class="logo">Content<span>X</span> AI</div>
+  <div class="nav">
+    <button class="active" onclick="showTab('dashboard',this)">📊 Dashboard</button>
+    <button onclick="showTab('analyzer',this)">🎬 Video Analyzer</button>
+    <button onclick="showTab('ideas',this)">✨ 10 Content</button>
+    <button onclick="showTab('calendar',this)">📅 Calendar</button>
+    <button onclick="showTab('sales',this)">💰 Sales</button>
+  </div>
+</aside>
+<main class="main">
+<section id="dashboard" class="tab active">
+<div class="top"><div><div class="eyebrow">AI CONTENT GROWTH ENGINE</div><div class="title">Dashboard</div><div class="subtitle">Belajar dari kontenmu. Tentukan apa yang dibuat berikutnya.</div></div><button class="btn" onclick="showTab('analyzer')">+ Analisis Video</button></div>
+<div class="grid">
+<div class="card"><div class="muted">Videos analyzed</div><div class="metric" id="mVideos">12</div></div>
+<div class="card"><div class="muted">Total views</div><div class="metric">124K</div></div>
+<div class="card"><div class="muted">Leads</div><div class="metric">83</div></div>
+<div class="card"><div class="muted">Revenue</div><div class="metric">Rp18,5jt</div></div>
+</div>
+<div class="two section">
+<div class="card"><h3>Target omzet</h3><div class="metric">Rp18,5jt <span class="muted">/ Rp50jt</span></div><div class="progress"><div></div></div><div class="muted">37% dari target bulanan</div></div>
+<div class="card"><h3>Content DNA</h3><div class="pattern"><b>Winning pattern</b><br><span class="muted">Storytelling + kehidupan setelah kerja + proses membuat website.</span></div></div>
+</div>
+<div class="card section"><h3>AI Recommendation</h3><p class="subtitle">Perbanyak storytelling yang memperlihatkan perjalanan membangun bisnis setelah bekerja. Gunakan CTA soft-selling untuk menguji lead conversion.</p></div>
+</section>
+
+<section id="analyzer" class="tab">
+<div class="top"><div><div class="eyebrow">VIDEO ANALYZER</div><div class="title">Upload & Analyze</div><div class="subtitle">MVP ini menyiapkan alur aplikasi. Hubungkan API AI untuk analisis produksi nyata.</div></div></div>
+<div class="two">
+<div class="card">
+<h3>1. Upload video</h3>
+<div class="upload"><b>MP4 / MOV / WebM</b><br><span class="muted">Pilih video yang sudah kamu upload ke TikTok/YouTube.</span><br><input id="videoFile" type="file" accept="video/*"></div>
+<h3>2. Analytics</h3>
+<textarea id="analytics" rows="9" style="width:100%;background:#0d1525;color:#fff;border:1px solid var(--border);border-radius:10px;padding:12px" placeholder="Views: 42000
+Likes: 3100
+Comments: 140
+Shares: 420
+Saves: 300
+Followers gained: 180
+Average watch duration: 31s
+Leads: 8
+Closing: 1
+Revenue: 5000000"></textarea>
+<div class="actions"><button class="btn" onclick="analyze()">🧠 Analyze & Generate 10</button><button class="btn secondary" onclick="demo()">Isi Data Demo</button></div>
+</div>
+<div class="card" id="analysisBox"><div class="empty">Belum ada analisis.<br>Upload video dan masukkan analytics.</div></div>
+</div>
+</section>
+
+<section id="ideas" class="tab">
+<div class="top"><div><div class="eyebrow">AI CONTENT GENERATOR</div><div class="title">10 Video Berikutnya</div><div class="subtitle">Hasil strategi berdasarkan winning pattern.</div></div><button class="btn" onclick="generateIdeas()">✨ Generate ulang</button></div>
+<div id="contentGrid" class="content-grid"><div class="empty">Jalankan analisis untuk menghasilkan 10 video.</div></div>
+</section>
+
+<section id="calendar" class="tab">
+<div class="top"><div><div class="eyebrow">CONTENT CALENDAR</div><div class="title">7 Hari</div></div></div>
+<div class="grid">
+<div class="card"><b>Senin</b><p class="muted">Reach — Storytelling</p></div><div class="card"><b>Selasa</b><p class="muted">Trust — Edukasi website</p></div>
+<div class="card"><b>Rabu</b><p class="muted">Reach — Motivasi</p></div><div class="card"><b>Kamis</b><p class="muted">Lead — Problem/Solution</p></div>
+<div class="card"><b>Jumat</b><p class="muted">Story — Behind the scenes</p></div><div class="card"><b>Sabtu</b><p class="muted">Sales — Demo website</p></div>
+<div class="card"><b>Minggu</b><p class="muted">Recap — Progress minggu ini</p></div>
+</div>
+</section>
+
+<section id="sales" class="tab">
+<div class="top"><div><div class="eyebrow">SALES ENGINE</div><div class="title">Content → Leads → Revenue</div></div></div>
+<div class="grid">
+<div class="card"><div class="muted">Views</div><div class="metric">124K</div></div><div class="card"><div class="muted">Profile visits</div><div class="metric">8,4K</div></div>
+<div class="card"><div class="muted">Leads</div><div class="metric">83</div></div><div class="card"><div class="muted">Closing</div><div class="metric">12</div></div>
+</div>
+<div class="card section"><h3>Revenue funnel</h3><p class="subtitle">Views → Profile → DM → Lead → Consultation → Offer → Closing</p><div class="pattern"><b>AI insight:</b> Konten reach memperbesar audience; konten problem-solution perlu diperbanyak untuk menguji konversi ke DM.</div></div>
+</section>
+</main>
+</div>
+<div class="toast" id="toast"></div>
+<script>
+const ideas=[
+["REACH","Pulang kerja bukan berarti hari saya selesai.","Storytelling tentang pulang kerja lalu membuka laptop untuk membangun bisnis.","Follow kalau kamu juga sedang membangun sesuatu dari nol."],
+["REACH","Saya belum sukses. Tapi saya sedang membangun.","Cerita jujur tentang proses, bukan hasil akhir.","Follow perjalanan saya."],
+["TRUST","Ini yang saya kerjakan setelah pulang kantor.","Behind the scenes membuat website UMKM.","Simpan kalau kamu juga sedang belajar skill digital."],
+["TRUST","3 kesalahan UMKM saat membuat website.","Edukasi singkat dengan contoh nyata.","Kirim ke pemilik UMKM yang kamu kenal."],
+["TRUST","Saya coba bikin website cafe seperti ini.","Demo website dari nol sampai jadi.","Kalau mau lihat versi lengkapnya, DM WEBSITE."],
+["LEAD","Bisnis kamu sudah punya Instagram, tapi belum punya website?","Problem-solution: katalog, informasi, kontak, trust.","DM WEBSITE untuk konsep gratis."],
+["LEAD","Saya mau coba audit 3 bisnis secara gratis.","Tawarkan mini audit sebagai lead magnet.","DM AUDIT + nama bisnis."],
+["LEAD","Website murah belum tentu cocok untuk bisnis kamu.","Jelaskan memilih fitur berdasarkan kebutuhan.","DM WEBSITE untuk konsultasi."],
+["SALES","Saya sedang membuka beberapa slot website UMKM.","Tampilkan portfolio, proses, dan paket secara transparan.","DM WEBSITE untuk cek kebutuhan."],
+["PERSONAL BRAND","30 hari membangun bisnis setelah pulang kerja.","Recap perjalanan, kegagalan, progres, dan target.","Follow untuk lihat lanjutannya."]
+];
+function showTab(id,btn){document.querySelectorAll('.tab').forEach(x=>x.classList.remove('active'));document.getElementById(id).classList.add('active');document.querySelectorAll('.nav button').forEach(x=>x.classList.remove('active'));if(btn)btn.classList.add('active')}
+function toast(t){let x=document.getElementById('toast');x.textContent=t;x.style.display='block';setTimeout(()=>x.style.display='none',2500)}
+function demo(){document.getElementById('analytics').value=`Views: 42000
+Likes: 3100
+Comments: 140
+Shares: 420
+Saves: 300
+Followers gained: 180
+Average watch duration: 31s
+Leads: 8
+Closing: 1
+Revenue: 5000000`;toast("Data demo dimasukkan")}
+function analyze(){
+const f=document.getElementById('videoFile').files[0];
+const a=document.getElementById('analytics').value.trim();
+if(!f && !a){toast("Upload video atau masukkan analytics terlebih dahulu");return}
+document.getElementById('analysisBox').innerHTML=`<div class="score"><div class="circle"><b>82</b></div><div><h3 style="margin:0">Content Score</h3><span class="muted">Analisis MVP selesai — ${f?f.name:"data analytics"}</span></div></div>
+<div class="bars">
+<div class="barrow"><span>Hook</span><div class="bar"><i style="width:91%"></i></div><b>91</b></div>
+<div class="barrow"><span>Story</span><div class="bar"><i style="width:84%"></i></div><b>84</b></div>
+<div class="barrow"><span>Value</span><div class="bar"><i style="width:86%"></i></div><b>86</b></div>
+<div class="barrow"><span>CTA</span><div class="bar"><i style="width:72%"></i></div><b>72</b></div>
+</div>
+<div class="pattern section"><b>Winning pattern detected</b><br><span class="muted">Storytelling + kehidupan setelah kerja + proses membuat website. Jadikan ini hipotesis utama untuk eksperimen berikutnya.</span></div>`;
+document.getElementById('mVideos').textContent=13;generateIdeas();showTab('ideas');toast("Analisis selesai — 10 konten dibuat")}
+function generateIdeas(){
+const grid=document.getElementById('contentGrid');grid.innerHTML="";
+ideas.forEach((x,i)=>{let el=document.createElement('article');el.className='video';el.innerHTML=`<span class="badge">${x[0]}</span><h3>VIDEO ${String(i+1).padStart(2,"0")} — ${x[1]}</h3><div class="hook"><b>HOOK</b><br>${x[1]}</div><p><b>Script angle:</b> ${x[2]}</p><div class="mini"><span>Durasi ${i%2?45:35}s</span><span>Target leads ${i>=5&&i<=8?2+"–5":"0–2"}</span><span>CTA</span></div><details><summary>Shot list + caption</summary><p><b>Shot 1:</b> Talking head / aktivitas nyata<br><b>Shot 2:</b> B-roll laptop, jalan pulang, meja kerja<br><b>Shot 3:</b> Close-up website / hasil kerja<br><b>Text:</b> ${x[1]}<br><b>CTA:</b> ${x[3]}<br><b>Caption:</b> Cerita nyata dari proses membangun skill dan bisnis dari nol. Tidak harus langsung besar, yang penting terus bergerak.</p></details></article>`;grid.appendChild(el)})
+}
+</script>
+</body>
+</html>
